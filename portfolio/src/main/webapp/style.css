@@ -1,3 +1,7 @@
+body {
+    background-color: rgb(255, 211, 228);
+}
+
 #content {
   margin-left: auto;
   margin-right: auto;
@@ -6,4 +10,32 @@
 
 #greeting-container {
   margin-top: 20px;
+}
+
+h1, p, button, ul, li {
+    font-family: Lucida Console;
+}
+
+p, ul, li {
+    font-size: 16px
+}
+
+button {
+  background-color: rgb(255, 255, 255);
+  border: 2px solid white;
+  border-radius: 5px;
+  color: rgb(0, 0, 0);
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.center {
+  margin: auto;
+  width: 80%;  
+  padding: 10px;
 }
