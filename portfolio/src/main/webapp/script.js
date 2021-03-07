@@ -29,7 +29,9 @@ function addRandomGreeting() {
 
 async function showMessage() {
   const responseFromServer = await fetch('/hello');
-  const textFromResponse = await responseFromServer.text();
+  const myObject = await responseFromServer.json();
+  const randomFact = myObject[Math.floor(Math.random() * myObject.length)];
+
   const helloWorldContainer = document.getElementById('hello-world-container');
-  helloWorldContainer.innerText = textFromResponse;
+  helloWorldContainer.innerText = randomFact;
 }
