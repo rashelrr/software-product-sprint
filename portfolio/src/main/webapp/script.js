@@ -12,6 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
 /**
  * Adds a random greeting to the page.
  */
@@ -34,9 +37,6 @@ async function showMessage() {
   const helloWorldContainer = document.getElementById('hello-world-container');
   helloWorldContainer.innerText = randomFact;
 }
-
-google.charts.load('current', {'packages':['corechart']});
-google.charts.setOnLoadCallback(drawChart);
 
 /** Week 3: Fetches coronavirus statistics and uses it to create a bar chart. */
 function drawChart() {
