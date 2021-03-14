@@ -34,3 +34,29 @@ async function showMessage() {
   const helloWorldContainer = document.getElementById('hello-world-container');
   helloWorldContainer.innerText = randomFact;
 }
+
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+/** Week 3: Fetches coronavirus statistics and uses it to create a bar chart. */
+function drawChart() {
+  fetch('/coronavirus-data').then(response => response.json())
+  .then((coronavirusData) => {
+    const data = new google.visualization.DataTable();
+    data.addColumn('string', 'Industry');
+    data.addColumn('number', 'Percent change in time spent per user session');
+    Object.keys(coronavirusData).forEach((industry) => {
+      data.addRow([industry, coronavirusData[industry]]);
+    });
+
+    const options = {
+      'title': 'Coronavirus Impact on Time Spent Per Online User Session in Selected Industries Worldwide in Week Ending April 26, 2020',
+      'width':600,
+      'height':500
+    };
+
+    const chart = new google.visualization.BarChart(
+        document.getElementById('chart-container'));
+    chart.draw(data, options);
+  });
+}
